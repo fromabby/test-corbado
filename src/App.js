@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { CorbadoProvider } from "@corbado/react"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Home from "./components/Home"
+
+const CORBADO_PROJECT_ID = process.env.REACT_APP_CORBADO_PROJECT_ID;
+
+const RouteProvider = () => {
+  const routes = [
+    {
+      path: '/',
+      element: <Home />,
+    },
+    {
+      path: '/profile',
+      element: <div>Profile</div>,
+    },
+  ];
+
+  return <RouterProvider router={createBrowserRouter(routes)} />;
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <CorbadoProvider projectId={CORBADO_PROJECT_ID} darkMode='on'>
+        <RouteProvider />
+      </CorbadoProvider>
+      <p>learn react</p>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
