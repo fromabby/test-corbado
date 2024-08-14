@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import Providers from './Providers';
+import Providers from './providers';
 
 test('renders learn react link', () => {
   render(<App />, { wrapper: Providers });

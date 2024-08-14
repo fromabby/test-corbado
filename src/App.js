@@ -1,6 +1,6 @@
-import { CorbadoProvider } from "@corbado/react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Home from "./components/Home"
+import Provider from './providers'
 
 const CORBADO_PROJECT_ID = process.env.REACT_APP_CORBADO_PROJECT_ID;
 
@@ -22,9 +22,9 @@ const RouteProvider = () => {
 function App() {
   return (
     <div className='App'>
-      <CorbadoProvider projectId={CORBADO_PROJECT_ID} darkMode='on'>
+      <Provider>
         <RouteProvider />
-      </CorbadoProvider>
+      </Provider>
       <p>learn react</p>
     </div>
   )
